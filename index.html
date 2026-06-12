@@ -105,12 +105,13 @@ nav{
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .hero-stats{
   display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--line);padding:24px 0 36px;
+  border-top:1px solid var(--line);padding:28px 0 36px;
+  align-items:start;
 }
 .hstat{padding:0 32px;border-right:1px solid var(--line)}
 .hstat:first-child{padding-left:0}
-.hstat:last-child{border-right:none}
-.hstat-n{font-family:'Fraunces',serif;font-size:40px;font-weight:700;color:var(--g);line-height:1;margin-bottom:4px}
+.hstat:last-child{border-right:none;padding-right:0}
+.hstat-n{font-family:'Fraunces',serif;font-size:40px;font-weight:700;color:var(--g);line-height:1;margin-bottom:6px}
 .hstat-l{font-size:13px;color:var(--soft);font-weight:400}
 .ticker{background:var(--g);padding:13px 0;overflow:hidden}
 .ticker-inner{display:flex;gap:56px;animation:slide 28s linear infinite;white-space:nowrap}
@@ -157,8 +158,8 @@ nav{
 .prod-card:hover{background:#222;border-color:#333;transform:translateY(-3px)}
 .prod-card:hover::after{transform:scaleX(1)}
 .pico{font-size:42px;margin-bottom:18px;display:block}
-.pcat{font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
-.pname{font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.2}
+.pcat{font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;min-height:16px}
+.pname{font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;line-height:1.2;min-height:58px}
 .pdesc{font-size:13px;color:rgba(255,255,255,.38);line-height:1.7;margin-bottom:24px}
 .pspecs{margin-bottom:24px}
 .pspec{display:flex;justify-content:space-between;font-size:12px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05)}
@@ -260,10 +261,12 @@ footer{background:var(--dark);padding:60px 56px 36px}
 }
 @media(max-width:768px){
   .nav-links{display:none}
-  .hero-stats{grid-template-columns:1fr 1fr}
-  .hstat{padding:14px 18px;border-right:none;border-bottom:1px solid var(--line)}
+  .hero-stats{grid-template-columns:1fr 1fr;gap:0;row-gap:0}
+  .hstat{padding:20px 16px;border-right:none;border-bottom:1px solid var(--line)}
   .hstat:nth-child(odd){border-right:1px solid var(--line)}
   .hstat:nth-child(3),.hstat:nth-child(4){border-bottom:none}
+  .hstat-n{font-size:34px}
+  .hstat-l{white-space:normal}
   .prod-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
   .frow{grid-template-columns:1fr}
@@ -327,16 +330,28 @@ footer{background:var(--dark);padding:60px 56px 36px}
 
 <div class="ticker">
   <div class="ticker-inner">
-    <div class="ti"><strong>Green Cardamom A</strong><span class="tip">₹2,450/kg</span></div><div class="tdot"></div>
-    <div class="ti"><strong>Green Cardamom B</strong><span class="tip">₹2,100/kg</span></div><div class="tdot"></div>
-    <div class="ti"><strong>Black Pepper Grade A</strong><span class="tip">₹680/kg</span></div><div class="tdot"></div>
-    <div class="ti"><strong>Export Quality Cardamom</strong><span class="tip">₹2,800/kg</span></div><div class="tdot"></div>
-    <div class="ti"><strong>White Pepper Premium</strong><span class="tip">₹820/kg</span></div><div class="tdot"></div>
-    <div class="ti"><strong>Green Cardamom A</strong><span class="tip">₹2,450/kg</span></div><div class="tdot"></div>
-    <div class="ti"><strong>Green Cardamom B</strong><span class="tip">₹2,100/kg</span></div><div class="tdot"></div>
-    <div class="ti"><strong>Black Pepper Grade A</strong><span class="tip">₹680/kg</span></div><div class="tdot"></div>
-    <div class="ti"><strong>Export Quality Cardamom</strong><span class="tip">₹2,800/kg</span></div><div class="tdot"></div>
-    <div class="ti"><strong>White Pepper Premium</strong><span class="tip">₹820/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom 6–7mm Super Premium</strong><span class="tip" data-key="card_67_super">₹2,800/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom 7–8mm Super Premium</strong><span class="tip" data-key="card_78_super">₹3,000/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom 8–10mm Super Premium</strong><span class="tip" data-key="card_810_super">₹3,400/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom Fruit</strong><span class="tip" data-key="card_fruit">₹2,800/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom 6–7mm Premium</strong><span class="tip" data-key="card_67_prem">₹2,700/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom 7–8mm Premium</strong><span class="tip" data-key="card_78_prem">₹2,900/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom 8–10mm Premium</strong><span class="tip" data-key="card_810_prem">₹3,200/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Black Pepper Garbled</strong><span class="tip" data-key="pepper_garbled">₹720/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Black Pepper Ungarbled</strong><span class="tip" data-key="pepper_ungarbled">₹700/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Black Pepper 8mm</strong><span class="tip" data-key="pepper_8mm">₹750/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Black Pepper 9mm</strong><span class="tip" data-key="pepper_9mm">₹760/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom 6–7mm Super Premium</strong><span class="tip" data-key="card_67_super">₹2,800/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom 7–8mm Super Premium</strong><span class="tip" data-key="card_78_super">₹3,000/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom 8–10mm Super Premium</strong><span class="tip" data-key="card_810_super">₹3,400/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom Fruit</strong><span class="tip" data-key="card_fruit">₹2,800/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom 6–7mm Premium</strong><span class="tip" data-key="card_67_prem">₹2,700/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom 7–8mm Premium</strong><span class="tip" data-key="card_78_prem">₹2,900/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Cardamom 8–10mm Premium</strong><span class="tip" data-key="card_810_prem">₹3,200/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Black Pepper Garbled</strong><span class="tip" data-key="pepper_garbled">₹720/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Black Pepper Ungarbled</strong><span class="tip" data-key="pepper_ungarbled">₹700/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Black Pepper 8mm</strong><span class="tip" data-key="pepper_8mm">₹750/kg</span></div><div class="tdot"></div>
+    <div class="ti"><strong>Black Pepper 9mm</strong><span class="tip" data-key="pepper_9mm">₹760/kg</span></div><div class="tdot"></div>
   </div>
 </div>
 
@@ -379,42 +394,42 @@ footer{background:var(--dark);padding:60px 56px 36px}
   <div class="prod-grid">
     <div class="prod-card">
       <span class="pico">💚</span>
-      <p class="pcat">Grade A · Premium</p>
-      <h3 class="pname">Green Cardamom</h3>
-      <p class="pdesc">Hand-picked from Idukki's high-altitude gardens. Bold aroma, deep green colour and plump pods — the benchmark for export quality.</p>
+      <p class="pcat">Super Premium · Export &amp; Domestic</p>
+      <h3 class="pname">Green Cardamom — Super Premium</h3>
+      <p class="pdesc">Bold green, plump pods from Idukki's high-altitude gardens. Available in 6–7mm, 7–8mm and 8–10mm sizes. Preferred by international importers for consistent aroma and colour.</p>
       <div class="pspecs">
+        <div class="pspec"><span class="psl">Sizes</span><span class="psv">6–7mm / 7–8mm / 8–10mm</span></div>
         <div class="pspec"><span class="psl">Origin</span><span class="psv">Idukki, Kerala</span></div>
-        <div class="pspec"><span class="psl">Moisture</span><span class="psv">&lt; 12%</span></div>
         <div class="pspec"><span class="psl">Min. Order</span><span class="psv">25 kg</span></div>
         <div class="pspec"><span class="psl">Packing</span><span class="psv">PP Bags / Cartons</span></div>
       </div>
-      <div class="pprice">₹2,450 <small>/ kg ex-Kerala</small></div>
+      <div class="pprice" data-key="card_super_range">₹2,800–₹3,400 <small>/ kg ex-Kerala</small></div>
+    </div>
+    <div class="prod-card">
+      <span class="pico">💚</span>
+      <p class="pcat">Premium · Export &amp; Domestic</p>
+      <h3 class="pname">Green Cardamom — Premium</h3>
+      <p class="pdesc">Consistent quality for both domestic and export buyers. Available in 6–7mm, 7–8mm and 8–10mm sizes. Also available as whole Cardamom Fruit for processing units.</p>
+      <div class="pspecs">
+        <div class="pspec"><span class="psl">Sizes</span><span class="psv">6–7mm / 7–8mm / 8–10mm / Fruit</span></div>
+        <div class="pspec"><span class="psl">Origin</span><span class="psv">Idukki, Kerala</span></div>
+        <div class="pspec"><span class="psl">Min. Order</span><span class="psv">25 kg</span></div>
+        <div class="pspec"><span class="psl">Packing</span><span class="psv">PP Bags / Cartons</span></div>
+      </div>
+      <div class="pprice" data-key="card_prem_range">₹2,700–₹3,200 <small>/ kg ex-Kerala</small></div>
     </div>
     <div class="prod-card">
       <span class="pico">🖤</span>
-      <p class="pcat">Grade A · Export</p>
+      <p class="pcat">Export &amp; Domestic</p>
       <h3 class="pname">Black Pepper</h3>
-      <p class="pdesc">Sun-dried Malabar black pepper with high piperine content. Preferred by importers across Europe and Middle East for sharp, lasting heat.</p>
+      <p class="pdesc">Sun-dried Malabar black pepper with high piperine content. Available as Garbled, Ungarbled and sorted by bold size (8mm / 9mm) for premium export markets.</p>
       <div class="pspecs">
-        <div class="pspec"><span class="psl">Origin</span><span class="psv">Idukki, Kerala</span></div>
-        <div class="pspec"><span class="psl">Piperine</span><span class="psv">&gt; 4.5%</span></div>
-        <div class="pspec"><span class="psl">Min. Order</span><span class="psv">50 kg</span></div>
+        <div class="pspec"><span class="psl">Grades</span><span class="psv">Garbled / Ungarbled / 8mm / 9mm</span></div>
+        <div class="pspec"><span class="psl">Origin</span><span class="psv">Kerala</span></div>
+        <div class="pspec"><span class="psl">Min. Order</span><span class="psv">25 kg</span></div>
         <div class="pspec"><span class="psl">Packing</span><span class="psv">Jute / PP Bags</span></div>
       </div>
-      <div class="pprice">₹680 <small>/ kg ex-Kerala</small></div>
-    </div>
-    <div class="prod-card">
-      <span class="pico">🤍</span>
-      <p class="pcat">Premium · Specialty</p>
-      <h3 class="pname">White Pepper</h3>
-      <p class="pdesc">Carefully processed to reveal a milder, refined heat. Preferred in European cuisines and premium food manufacturing worldwide.</p>
-      <div class="pspecs">
-        <div class="pspec"><span class="psl">Origin</span><span class="psv">Kerala</span></div>
-        <div class="pspec"><span class="psl">Process</span><span class="psv">Water Soaked</span></div>
-        <div class="pspec"><span class="psl">Min. Order</span><span class="psv">25 kg</span></div>
-        <div class="pspec"><span class="psl">Packing</span><span class="psv">Vacuum / PP Bags</span></div>
-      </div>
-      <div class="pprice">₹820 <small>/ kg ex-Kerala</small></div>
+      <div class="pprice" data-key="pepper_range">₹700–₹760 <small>/ kg ex-Kerala</small></div>
     </div>
   </div>
 </section>
@@ -422,24 +437,30 @@ footer{background:var(--dark);padding:60px 56px 36px}
 <section id="rates" class="sec rates-sec">
   <div class="rates-hdr">
     <div><div class="sec-lbl">Market Prices</div><h2 class="sec-h">Today's <em>Live Rates</em></h2></div>
-    <div class="rates-live-tag"><div class="live-dot"></div>Updated today · 9:00 AM IST</div>
+    <div class="rates-live-tag"><div class="live-dot"></div><span id="rates-timestamp">Updated today · 9:00 AM IST</span></div>
   </div>
   <table class="rates-table">
     <thead>
       <tr>
-        <th>Product</th><th>Grade</th><th>Price / kg</th>
+        <th>Product</th><th>Grade / Size</th><th>Price / kg</th>
         <th>Market</th><th>Min. Order</th><th>Stock</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>Green Cardamom</td><td><span class="rbadge rb-a">Grade A</span></td><td class="rp">₹2,450</td><td>Domestic & Export</td><td>25 kg</td><td class="sok">✓ In Stock</td></tr>
-      <tr><td>Green Cardamom</td><td><span class="rbadge rb-b">Grade B</span></td><td class="rp">₹2,100</td><td>Domestic</td><td>50 kg</td><td class="sok">✓ In Stock</td></tr>
-      <tr><td>Green Cardamom</td><td><span class="rbadge rb-e">Export Quality</span></td><td class="rp">₹2,800</td><td>Export Only</td><td>100 kg</td><td class="sok">✓ In Stock</td></tr>
-      <tr><td>Black Pepper</td><td><span class="rbadge rb-a">Grade A</span></td><td class="rp">₹680</td><td>Domestic & Export</td><td>50 kg</td><td class="sok">✓ In Stock</td></tr>
-      <tr><td>White Pepper</td><td><span class="rbadge rb-e">Premium</span></td><td class="rp">₹820</td><td>Export Only</td><td>25 kg</td><td class="slow">~ Limited</td></tr>
+      <tr><td>Green Cardamom</td><td><span class="rbadge rb-e">6–7mm Super Premium</span></td><td class="rp" data-key="card_67_super">₹2,800</td><td>Export &amp; Domestic</td><td>25 kg</td><td class="sok">✓ In Stock</td></tr>
+      <tr><td>Green Cardamom</td><td><span class="rbadge rb-e">7–8mm Super Premium</span></td><td class="rp" data-key="card_78_super">₹3,000</td><td>Export &amp; Domestic</td><td>25 kg</td><td class="sok">✓ In Stock</td></tr>
+      <tr><td>Green Cardamom</td><td><span class="rbadge rb-e">8–10mm Super Premium</span></td><td class="rp" data-key="card_810_super">₹3,400</td><td>Export &amp; Domestic</td><td>25 kg</td><td class="sok">✓ In Stock</td></tr>
+      <tr><td>Green Cardamom</td><td><span class="rbadge rb-b">Fruit</span></td><td class="rp" data-key="card_fruit">₹2,800</td><td>Export &amp; Domestic</td><td>25 kg</td><td class="sok">✓ In Stock</td></tr>
+      <tr><td>Green Cardamom</td><td><span class="rbadge rb-a">6–7mm Premium</span></td><td class="rp" data-key="card_67_prem">₹2,700</td><td>Export &amp; Domestic</td><td>25 kg</td><td class="sok">✓ In Stock</td></tr>
+      <tr><td>Green Cardamom</td><td><span class="rbadge rb-a">7–8mm Premium</span></td><td class="rp" data-key="card_78_prem">₹2,900</td><td>Export &amp; Domestic</td><td>25 kg</td><td class="sok">✓ In Stock</td></tr>
+      <tr><td>Green Cardamom</td><td><span class="rbadge rb-a">8–10mm Premium</span></td><td class="rp" data-key="card_810_prem">₹3,200</td><td>Export &amp; Domestic</td><td>25 kg</td><td class="sok">✓ In Stock</td></tr>
+      <tr><td>Black Pepper</td><td><span class="rbadge rb-a">Garbled</span></td><td class="rp" data-key="pepper_garbled">₹720</td><td>Export &amp; Domestic</td><td>25 kg</td><td class="sok">✓ In Stock</td></tr>
+      <tr><td>Black Pepper</td><td><span class="rbadge rb-b">Ungarbled</span></td><td class="rp" data-key="pepper_ungarbled">₹700</td><td>Export &amp; Domestic</td><td>25 kg</td><td class="sok">✓ In Stock</td></tr>
+      <tr><td>Black Pepper</td><td><span class="rbadge rb-e">8mm Bold</span></td><td class="rp" data-key="pepper_8mm">₹750</td><td>Export &amp; Domestic</td><td>25 kg</td><td class="sok">✓ In Stock</td></tr>
+      <tr><td>Black Pepper</td><td><span class="rbadge rb-e">9mm Bold</span></td><td class="rp" data-key="pepper_9mm">₹760</td><td>Export &amp; Domestic</td><td>25 kg</td><td class="sok">✓ In Stock</td></tr>
     </tbody>
   </table>
-  <p class="rates-note">* Prices are indicative and subject to market fluctuation. Final prices confirmed at order. All prices ex-Kerala warehouse. Transport and export charges applicable separately.</p>
+  <p class="rates-note">* Prices are indicative and subject to market fluctuation. Final prices confirmed at order. All prices ex-Kerala warehouse. GST and transportation charges applicable separately.</p>
   <div class="rates-cta">
     <p>Need a <span>custom bulk quote?</span></p>
     <a href="#contact" class="btn-green">Request Quote →</a>
@@ -487,9 +508,9 @@ footer{background:var(--dark);padding:60px 56px 36px}
   <h2 class="sec-h">Let's Talk <em>Spices</em></h2>
   <div class="contact-wrap">
     <div class="cinfo">
-      <div class="citem"><div class="cico">📍</div><div><h4>Location</h4><p>PepperZing Exports<br>Kerala, India</p></div></div>
-      <div class="citem"><div class="cico">📱</div><div><h4>WhatsApp & Call</h4><p><a href="https://wa.me/919876543210">+91 98765 43210</a><br>9am–6pm IST, Mon–Sat</p></div></div>
-      <div class="citem"><div class="cico">📧</div><div><h4>Email</h4><p><a href="mailto:export@pepperzing.com">export@pepperzing.com</a><br>Reply within 24 hours</p></div></div>
+      <div class="citem"><div class="cico">📍</div><div><h4>Location</h4><p>PepperZing Ventures LLP<br>HQ — Salem, India</p></div></div>
+      <div class="citem"><div class="cico">📱</div><div><h4>WhatsApp & Call</h4><p><a href="https://wa.me/918220799481">+91 82207 99481</a><br>9am–6pm IST, Mon–Sat</p></div></div>
+      <div class="citem"><div class="cico">📧</div><div><h4>Email</h4><p><a href="mailto:marketing@pepperzing.in">marketing@pepperzing.in</a><br>Reply within 24 hours</p></div></div>
       <div class="citem"><div class="cico">⚡</div><div><h4>Fast Quote</h4><p>Detailed quote with pricing, specs and availability within 24 hours of enquiry.</p></div></div>
     </div>
     <form class="cform" onsubmit="handleForm(event)">
@@ -505,11 +526,17 @@ footer{background:var(--dark);padding:60px 56px 36px}
         <label>Product</label>
         <select>
           <option value="">Select a product</option>
-          <option>Green Cardamom — Grade A</option>
-          <option>Green Cardamom — Grade B</option>
-          <option>Green Cardamom — Export Quality</option>
-          <option>Black Pepper — Grade A</option>
-          <option>White Pepper — Premium</option>
+          <option>Green Cardamom — 6–7mm Super Premium</option>
+          <option>Green Cardamom — 7–8mm Super Premium</option>
+          <option>Green Cardamom — 8–10mm Super Premium</option>
+          <option>Green Cardamom — Fruit</option>
+          <option>Green Cardamom — 6–7mm Premium</option>
+          <option>Green Cardamom — 7–8mm Premium</option>
+          <option>Green Cardamom — 8–10mm Premium</option>
+          <option>Black Pepper — Garbled</option>
+          <option>Black Pepper — Ungarbled</option>
+          <option>Black Pepper — 8mm Bold</option>
+          <option>Black Pepper — 9mm Bold</option>
           <option>Multiple Products</option>
         </select>
       </div>
@@ -534,12 +561,13 @@ footer{background:var(--dark);padding:60px 56px 36px}
     <div class="fcol"><h4>Certifications</h4><ul><li><a href="#">FSSAI Certified</a></li><li><a href="#">Spices Board India</a></li><li><a href="#">Phytosanitary Cert.</a></li><li><a href="#">Export License</a></li></ul></div>
   </div>
   <div class="fbot">
-    <p>© 2026 PepperZing. All rights reserved. Kerala, India.</p>
-    <p>Premium Spices · Pepper & Cardamom</p>
+    <p>© 2026 PepperZing Ventures LLP. All rights reserved. Salem, India.</p>
+    <p>Premium Spices · Pepper & Cardamom · <a href="privacy.html" style="color:inherit;text-decoration:underline;opacity:0.7;">Privacy Policy</a></p>
+    <p style="font-size:11px;opacity:0.4;margin-top:6px;">For any disputes, the jurisdiction shall be Salem, Tamil Nadu, India only.</p>
   </div>
 </footer>
 
-<a href="https://wa.me/919876543210?text=Hi%20PepperZing!%20I%27m%20interested%20in%20your%20spices." class="wa" target="_blank">
+<a href="https://wa.me/918220799481?text=Hi%20PepperZing!%20I%27m%20interested%20in%20your%20spices." class="wa" target="_blank">
   <span class="wa-tip">Chat with us</span>
   <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
     <path d="M16 2C8.268 2 2 8.268 2 16c0 2.774.785 5.365 2.147 7.568L2 30l6.588-2.11A13.94 13.94 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.56 11.56 0 01-5.896-1.61l-.424-.252-4.384 1.404 1.348-4.264-.276-.44A11.56 11.56 0 014.4 16C4.4 9.593 9.593 4.4 16 4.4S27.6 9.593 27.6 16 22.407 27.6 16 27.6zm6.344-8.664c-.348-.174-2.06-1.016-2.38-1.132-.32-.116-.552-.174-.784.174-.232.348-.9 1.132-1.104 1.364-.204.232-.408.26-.756.086-.348-.174-1.468-.54-2.796-1.724-1.032-.92-1.728-2.056-1.932-2.404-.204-.348-.022-.536.152-.71.158-.156.348-.406.522-.61.174-.204.232-.348.348-.58.116-.232.058-.436-.028-.61-.087-.174-.784-1.89-1.074-2.588-.284-.68-.57-.588-.784-.6-.204-.01-.436-.012-.668-.012-.232 0-.61.086-.928.434-.32.348-1.218 1.19-1.218 2.902 0 1.712 1.246 3.366 1.42 3.598.174.232 2.452 3.744 5.942 5.25.83.358 1.48.572 1.986.732.834.264 1.594.226 2.194.138.67-.1 2.06-.842 2.35-1.656.29-.814.29-1.512.204-1.656-.086-.144-.318-.23-.666-.404z"/>
@@ -568,6 +596,103 @@ window.addEventListener('scroll',()=>{
     }
   });
 });
+
+// ─── LIVE RATES FROM GOOGLE SHEETS ───────────────────────────────────────────
+// Replace SHEET_ID below with your Google Sheet ID after publishing it as CSV.
+// How to get your Sheet ID:
+//   1. Open your Google Sheet
+//   2. Go to File → Share → Publish to web
+//   3. Choose Sheet1, CSV format, click Publish
+//   4. Copy the URL — your Sheet ID is the long string between /d/ and /edit
+//      e.g. https://docs.google.com/spreadsheets/d/SHEET_ID/edit
+//
+// Your Google Sheet must have these exact columns (row 1 = headers):
+//   key | price | updated
+//
+// With these exact keys in column A:
+//   card_67_super | card_78_super | card_810_super | card_fruit
+//   card_67_prem  | card_78_prem  | card_810_prem
+//   pepper_garbled | pepper_ungarbled | pepper_8mm | pepper_9mm
+
+const SHEET_ID = '1GX7NTC2fiiJaewSlePddbZpyjYKcqGwtQQ63_FnDnos';
+const CSV_URL  = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Sheet1`;
+
+async function loadRates(){
+  if(SHEET_ID === 'YOUR_GOOGLE_SHEET_ID_HERE') return; // not configured yet
+  try {
+    const res  = await fetch(CSV_URL);
+    const text = await res.text();
+    const rows = text.trim().split('\n').slice(1); // skip header row
+
+    const rates = {};
+    let updated = '';
+    rows.forEach(row => {
+      // CSV values may be quoted — strip quotes and split
+      const cols = row.split(',').map(c => c.replace(/^"|"$/g,'').trim());
+      const key  = cols[0];
+      const price= cols[1];
+      const date = cols[2];
+      if(key && price) rates[key] = { price, date };
+      if(date && !updated) updated = date;
+    });
+
+    // ── Update rates TABLE ──
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.getAttribute('data-key');
+      if(!rates[key]) return;
+      const p = parseInt(rates[key].price.replace(/[^0-9]/g,''));
+      if(isNaN(p)) return;
+      const fmt = '₹' + p.toLocaleString('en-IN');
+
+      if(el.classList.contains('rp')){
+        // Rates table cell
+        el.textContent = fmt;
+      } else if(el.classList.contains('tip')){
+        // Ticker span
+        el.textContent = fmt + '/kg';
+      }
+    });
+
+    // ── Update PRODUCT CARD ranges ──
+    const sp = rates;
+    const superMin = Math.min(...['card_67_super','card_78_super','card_810_super']
+      .filter(k=>sp[k]).map(k=>parseInt(sp[k].price.replace(/[^0-9]/g,''))));
+    const superMax = Math.max(...['card_67_super','card_78_super','card_810_super']
+      .filter(k=>sp[k]).map(k=>parseInt(sp[k].price.replace(/[^0-9]/g,''))));
+    const premMin  = Math.min(...['card_67_prem','card_78_prem','card_810_prem']
+      .filter(k=>sp[k]).map(k=>parseInt(sp[k].price.replace(/[^0-9]/g,''))));
+    const premMax  = Math.max(...['card_67_prem','card_78_prem','card_810_prem']
+      .filter(k=>sp[k]).map(k=>parseInt(sp[k].price.replace(/[^0-9]/g,''))));
+    const pepMin   = Math.min(...['pepper_garbled','pepper_ungarbled','pepper_8mm','pepper_9mm']
+      .filter(k=>sp[k]).map(k=>parseInt(sp[k].price.replace(/[^0-9]/g,''))));
+    const pepMax   = Math.max(...['pepper_garbled','pepper_ungarbled','pepper_8mm','pepper_9mm']
+      .filter(k=>sp[k]).map(k=>parseInt(sp[k].price.replace(/[^0-9]/g,''))));
+
+    const fmt = n => '₹' + n.toLocaleString('en-IN');
+    const superEl = document.querySelector('[data-key="card_super_range"]');
+    const premEl  = document.querySelector('[data-key="card_prem_range"]');
+    const pepEl   = document.querySelector('[data-key="pepper_range"]');
+    if(superEl && isFinite(superMin)) superEl.innerHTML = `${fmt(superMin)}–${fmt(superMax)} <small>/ kg ex-Kerala</small>`;
+    if(premEl  && isFinite(premMin))  premEl.innerHTML  = `${fmt(premMin)}–${fmt(premMax)} <small>/ kg ex-Kerala</small>`;
+    if(pepEl   && isFinite(pepMin))   pepEl.innerHTML   = `${fmt(pepMin)}–${fmt(pepMax)} <small>/ kg ex-Kerala</small>`;
+
+    // ── Update TIMESTAMP ──
+    const ts = document.getElementById('rates-timestamp');
+    if(ts && updated){
+      const d = new Date(updated);
+      if(!isNaN(d)){
+        const opts = {day:'numeric', month:'short', year:'numeric'};
+        ts.textContent = 'Updated ' + d.toLocaleDateString('en-IN', opts) + ' · 9:00 AM IST';
+      }
+    }
+
+  } catch(err){
+    console.warn('PepperZing: Could not load live rates.', err);
+  }
+}
+
+loadRates();
+// ─────────────────────────────────────────────────────────────────────────────
 </script>
 </body>
 </html>
