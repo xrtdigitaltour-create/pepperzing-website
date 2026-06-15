@@ -598,13 +598,7 @@ window.addEventListener('scroll',()=>{
 });
 
 // ─── LIVE RATES FROM GOOGLE SHEETS ───────────────────────────────────────────
-// Replace SHEET_ID below with your Google Sheet ID after publishing it as CSV.
-// How to get your Sheet ID:
-//   1. Open your Google Sheet
-//   2. Go to File → Share → Publish to web
-//   3. Choose Sheet1, CSV format, click Publish
-//   4. Copy the URL — your Sheet ID is the long string between /d/ and /edit
-//      e.g. https://docs.google.com/spreadsheets/d/SHEET_ID/edit
+// This URL comes from File → Share → Publish to web → CSV → Publish.
 //
 // Your Google Sheet must have these exact columns (row 1 = headers):
 //   key | price | updated
@@ -614,13 +608,11 @@ window.addEventListener('scroll',()=>{
 //   card_67_prem  | card_78_prem  | card_810_prem
 //   pepper_garbled | pepper_ungarbled | pepper_8mm | pepper_9mm
 
-const SHEET_ID = '1GX7NTC2fiiJaewSlePddbZpyjYKcqGwtQQ63_FnDnos';
-const CSV_URL  = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=Sheet1`;
+const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSwED6qa5RyPZwHH3bvZRQoRCzQEo-YLbCgllttD3c7jWljD5ctruRjLFe0bKbSX44k1Uld5kZAhFSC/pub?gid=0&single=true&output=csv';
 
 async function loadRates(){
-  if(SHEET_ID === 'YOUR_GOOGLE_SHEET_ID_HERE') return; // not configured yet
   try {
-    const res  = await fetch(CSV_URL);
+    const res  = await fetch(CSV_URL + '&_=' + Date.now()); // cache-bust
     const text = await res.text();
     const rows = text.trim().split('\n').slice(1); // skip header row
 
